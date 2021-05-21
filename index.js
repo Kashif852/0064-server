@@ -1,9 +1,11 @@
 
 const express = require('express')
+const bodyParser = require('body-parser')
 const cors = require('cors')
 require("dotenv").config();
 
 const ImageKit = require('imagekit');
+
 
 
 const imagekit = new ImageKit({
@@ -29,6 +31,7 @@ app.use(function(req, res, next) {
   });
 
 
+app.use(bodyParser.json())
 
 app.listen(process.env.PORT || 4000 ,()=>console.log('Server started at : 4000'))
 
